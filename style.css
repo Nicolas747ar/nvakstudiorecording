@@ -558,3 +558,10 @@ header {
   background: #333;
   border-radius: 5px;
 }
+
+
+
+/* Animaciones */
+.hamburger span.rotate1 { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger span.rotate2 { transform: rotate(-45deg) translate(6px, -6px); }
+.hamburger span.fade { opacity: 0; }

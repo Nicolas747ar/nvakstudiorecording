@@ -195,6 +195,24 @@ window.addEventListener('scroll', () => {
 
 
 
+// --- MENU HAMBURGUESA MOVIL ---
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+
+hamburger.addEventListener('click', () => {
+  menu.classList.toggle('active');
+  hamburger.classList.toggle('open');
+});
+
+// Animación de la hamburguesa al abrir/cerrar
+hamburger.classList.remove('open'); // inicial
+
+hamburger.addEventListener('click', () => {
+  const spans = hamburger.querySelectorAll('span');
+  spans[0].classList.toggle('rotate1');
+  spans[1].classList.toggle('fade');
+  spans[2].classList.toggle('rotate2');
+});
 
 
 
