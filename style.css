@@ -695,3 +695,103 @@ header {
 
 
 
+.reviews-slider {
+  background: linear-gradient(145deg, #0f0f0f, #181818);
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.reviews-slider h2 {
+  font-size: 2em;
+  margin-bottom: 40px;
+  color: #1db954;
+  letter-spacing: 1px;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.review-slide {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.6s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.review-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+.review-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  border: 2px solid #1db954;
+}
+
+.review-slide .stars {
+  color: #f5c518;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.review-slide p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 10px;
+  padding: 0 15px;
+}
+
+.review-slide h4 {
+  color: #1db954;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.slider-dots {
+  margin-top: 25px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #444;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #1db954;
+}
+
+/* 📱 Responsivo */
+@media (max-width: 768px) {
+  .review-photo {
+    width: 70px;
+    height: 70px;
+  }
+  .review-slide p {
+    font-size: 1em;
+  }
+  .reviews-slider h2 {
+    font-size: 1.6em;
+  }
+}
