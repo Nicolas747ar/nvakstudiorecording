@@ -561,7 +561,62 @@ header {
 
 
 
-/* Animaciones */
-.hamburger span.rotate1 { transform: rotate(45deg) translate(5px, 5px); }
-.hamburger span.rotate2 { transform: rotate(-45deg) translate(6px, -6px); }
-.hamburger span.fade { opacity: 0; }
+/* Esconder menú en móvil y mostrar hamburguesa */
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+}
+
+/* Para pantallas menores a 768px */
+@media (max-width: 768px) {
+  .menu {
+    display: none; /* Se oculta por defecto */
+    flex-direction: column;
+    position: absolute;
+    top: 70px; /* Ajusta según la altura del nav */
+    right: 20px;
+    background: #fff; /* o el color de tu navbar */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .menu.active {
+    display: flex; /* Se muestra cuando se activa */
+  }
+
+  .hamburger {
+    display: flex; /* Se muestra la hamburguesa en móvil */
+  }
+}
+
+
+/* Animación de la hamburguesa */
+.hamburger span {
+  transition: all 0.3s ease;
+}
+
+/* Al abrir */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
