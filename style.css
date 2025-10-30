@@ -561,56 +561,41 @@ header {
 
 
 
-/* Esconder menú en móvil y mostrar hamburguesa */
+/* === MENÚ PRINCIPAL === */
 .menu {
   display: flex;
   gap: 20px;
 }
 
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #1db954; /* verde estilo Spotify */
+}
+
+/* === BOTÓN HAMBURGUESA === */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
+  z-index: 1001;
 }
 
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: #000;
+  background: white;
   border-radius: 2px;
-}
-
-/* Para pantallas menores a 768px */
-@media (max-width: 768px) {
-  .menu {
-    display: none; /* Se oculta por defecto */
-    flex-direction: column;
-    position: absolute;
-    top: 70px; /* Ajusta según la altura del nav */
-    right: 20px;
-    background: #fff; /* o el color de tu navbar */
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-
-  .menu.active {
-    display: flex; /* Se muestra cuando se activa */
-  }
-
-  .hamburger {
-    display: flex; /* Se muestra la hamburguesa en móvil */
-  }
-}
-
-
-/* Animación de la hamburguesa */
-.hamburger span {
   transition: all 0.3s ease;
 }
 
-/* Al abrir */
+/* Animación del ícono al abrir */
 .hamburger.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -620,3 +605,43 @@ header {
 .hamburger.open span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    z-index: 1000;
+
+    /* --- animación inicial oculta --- */
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: all 0.3s ease;
+  }
+
+  .menu.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .menu a {
+    color: white;
+    padding: 10px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+
+
+
